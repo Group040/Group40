@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="567.0" spacing="179.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="goodname" prefWidth="40.0" text="Jarred" />
+      <Label fx:id="goodsale" layoutX="10.0" layoutY="10.0" text="2022" />
+      <Label fx:id="goodproduct" layoutX="38.0" layoutY="10.0" text="523" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets left="20.0" />
+   </padding>
+</HBox>
