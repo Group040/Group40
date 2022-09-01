@@ -1,25 +1,14 @@
 package com.example.inventorysystem;
 
-import com.almasb.fxgl.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.effect.ImageInput;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
 
 public class DashboardController{
     @FXML
@@ -77,8 +66,37 @@ public class DashboardController{
     private Pane mainBody;
 
     @FXML
+    private Button insert_prduct;
+
+    @FXML
+    private Pane products;
+
+    @FXML
+    void addProduct(ActionEvent event) throws IOException {
+        URL url = getClass().getResource("addProduct.fxml");
+        System.out.println(url);
+        System.out.println(url);
+
+        mainBody.getChildren().clear();
+        try {
+            Pane home = (Pane) FXMLLoader.load(url);
+//            Parent fxml = FXMLLoader.load(url);
+            System.out.println("cretaed");
+            mainBody.getChildren().add(home);
+            System.out.println(mainBody.getChildren());
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+        @FXML
     void showProducts(ActionEvent event) throws IOException{
         URL url = getClass().getResource("products.fxml");
+        System.out.println(url);
+        System.out.println(url);
+
         mainBody.getChildren().clear();
         try {
             Pane home = (Pane) FXMLLoader.load(url);
@@ -154,7 +172,8 @@ public class DashboardController{
 
         }catch (IOException e){
             e.printStackTrace();
-        }    }
+        }
+    }
 
     @FXML
     void showComodities(ActionEvent event) throws IOException{

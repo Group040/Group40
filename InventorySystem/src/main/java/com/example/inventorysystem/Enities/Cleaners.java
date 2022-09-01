@@ -3,26 +3,27 @@ package com.example.inventorysystem.Enities;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class Diary extends Item{
+public class Cleaners extends Item{
 
-    public Diary(){
+    public Cleaners(){
         super();
     }
-    public int diary_id;
+    public int cleaners_id;
     public String description;
-    public Diary(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int diary_id, String description) {
+    public Cleaners(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int cleaners_id, String description) {
         super(id, code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
 
-        this.diary_id = diary_id;
+        this.cleaners_id = cleaners_id;
         this.description = description;
+
     }
 
-    public int getDiary_id() {
-        return diary_id;
+    public int getCleaners_id() {
+        return cleaners_id;
     }
 
-    public void setDiary_id(int diary_id) {
-        this.diary_id = diary_id;
+    public void setCleaners_id(int cleaners_id) {
+        this.cleaners_id = cleaners_id;
     }
 
     public String getDescription() {

@@ -1,13 +1,18 @@
 package com.example.inventorysystem.Enities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Beverages extends Item {
     public int beverage_id;
     public String description;
 
-    public Beverages(int id, int code, String item_name, Category cagetroy, Date expiry, int buy_price, int sel_price, int quantity, int gross_total, int beverage_id, String description) {
-        super(id, code, item_name, cagetroy, expiry, buy_price, sel_price, quantity, gross_total);
+
+    public Beverages(){
+        super();
+    }
+    public Beverages(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int beverage_id, String description) {
+        super(id, code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
         this.beverage_id = beverage_id;
         this.description = description;
     }

@@ -1,28 +1,43 @@
 package com.example.inventorysystem.Enities;
 
+import java.time.LocalDate;
 import java.util.Date;
+
 
 public class Item {
     public int id;
     public int code;
     public String item_name;
-    public Category Cagetroy;
-    public Date expiry;
+    public String category;
+    public LocalDate expiry;
     public int buy_price;
     public int sel_price;
     public int quantity;
     public int gross_total;
 
-    public Item(int id, int code, String item_name, Category cagetroy, Date expiry, int buy_price, int sel_price, int quantity, int gross_total) {
+
+    public Item() {
+
+    }
+
+    public Item(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total) {
         this.id = id;
         this.code = code;
         this.item_name = item_name;
-        Cagetroy = cagetroy;
+        this.category = category;
         this.expiry = expiry;
         this.buy_price = buy_price;
         this.sel_price = sel_price;
         this.quantity = quantity;
         this.gross_total = gross_total;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public int getId() {
@@ -49,19 +64,12 @@ public class Item {
         this.item_name = item_name;
     }
 
-    public Category getCagetroy() {
-        return Cagetroy;
-    }
 
-    public void setCagetroy(Category cagetroy) {
-        Cagetroy = cagetroy;
-    }
-
-    public Date getExpiry() {
+    public LocalDate getExpiry() {
         return expiry;
     }
 
-    public void setExpiry(Date expiry) {
+    public void setExpiry(LocalDate expiry) {
         this.expiry = expiry;
     }
 
