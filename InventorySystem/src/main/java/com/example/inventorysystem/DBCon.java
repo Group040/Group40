@@ -3,40 +3,50 @@ package com.example.inventorysystem;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+/**
+ * Database
+ * @author Julian Jupiter
+ *
+ */
 public class DBCon {
-    private static boolean isDriverLoaded = false;
-    static{
-        try{
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            System.out.println("Driver Loaded");
-            isDriverLoaded = true;
-        }catch(ClassNotFoundException e){
-            e.printStackTrace();
-        }
-    }
 
-    private final static String url="jdbc:oracle:thin:@localhost:3307:inventory";
-    private final static String user="root";
-    private final static String password="";
+    private static final Logger logger = Logger.getLogger(DBCon.class.getName());
+    private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
+    private static final String DB_CONNECTION = "jdbc:mysql://localhost:3307/inventory";
+    private static final String DB_USER = "root";
+    private static final String DB_PASSWORD = "";
+
+    private DBCon() {
+
+    }
 
     public static Connection getConnection() throws SQLException {
-        Connection con = null;
-        if(isDriverLoaded){
-            con  = DriverManager.getConnection(url,user,password);
-            System.out.println("Connection established");
+        Connection connection = null;
+
+        try {
+            Class.forName(DB_DRIVER);
+            System.out.println("Driver Loaded");
+        } catch (ClassNotFoundException exception) {
+            logger.log(Level.SEVERE, exception.getMessage());
+            System.out.println("Driver not Loaded");
+
         }
-        return con;
-    }
 
+        try {
+            connection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+            System.out.println("Connection is established");
+            System.out.println(connection);
+            return connection;
 
-    public static void closeConnection(Connection con) throws SQLException{
-        if(con!=null){
-            con.close();
-            System.out.println("connection closed");
+        } catch (SQLException exception) {
+            logger.log(Level.SEVERE, exception.getMessage());
         }
+        System.out.println("Connection not established");
+
+        return connection;
     }
-
-
 
 }

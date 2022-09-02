@@ -1,4 +1,4 @@
-package com.example.inventorysystem.Enities;
+package com.example.inventorysystem;
 
 public class Category {
     public int id;

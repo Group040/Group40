@@ -96,8 +96,10 @@ public class DashboardController{
         URL url = getClass().getResource("products.fxml");
         System.out.println(url);
         System.out.println(url);
+        ProductsController prodcutsController = new ProductsController();
+            prodcutsController.refreshTable();
 
-        mainBody.getChildren().clear();
+            mainBody.getChildren().clear();
         try {
             Pane home = (Pane) FXMLLoader.load(url);
 //            Parent fxml = FXMLLoader.load(url);

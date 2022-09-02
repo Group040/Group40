@@ -1,7 +1,6 @@
-package com.example.inventorysystem.Enities;
+package com.example.inventorysystem;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Beverages extends Item {
     public int beverage_id;

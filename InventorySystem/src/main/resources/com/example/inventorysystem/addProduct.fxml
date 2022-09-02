@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="776.0" prefWidth="1132.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorysystem.Products">
+<AnchorPane prefHeight="738.0" prefWidth="1132.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorysystem.ProductsController">
    <children>
       <TextField fx:id="name" layoutX="38.0" layoutY="127.0" prefHeight="40.0" prefWidth="450.0" />
       <Label layoutX="38.0" layoutY="98.0" text="Product Name">
@@ -54,13 +54,13 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="gross_total" layoutX="548.0" layoutY="515.0" prefHeight="40.0" prefWidth="181.0" />
+      <TextField fx:id="gross_total" editable="false" layoutX="548.0" layoutY="515.0" prefHeight="40.0" prefWidth="181.0" />
       <Label layoutX="548.0" layoutY="486.0" text="Gross Total">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="profit" layoutX="772.0" layoutY="515.0" prefHeight="40.0" prefWidth="181.0" />
+      <TextField fx:id="profit" editable="false" layoutX="772.0" layoutY="515.0" prefHeight="40.0" prefWidth="181.0" />
       <Label layoutX="772.0" layoutY="486.0" text="Expected Profit">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -69,6 +69,6 @@
       <Button fx:id="insert_product" layoutX="38.0" layoutY="607.0" mnemonicParsing="false" onAction="#createProduct" prefHeight="34.0" prefWidth="202.0" style="-fx-background-color: #3256cd;" text="Add Product" textFill="WHITE" />
       <Button fx:id="update_product" layoutX="259.0" layoutY="607.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="202.0" style="-fx-border-color: #3256cd; -fx-background-color: none;" text="Save Product" textFill="#3256cd" />
       <Label layoutX="38.0" layoutY="34.0" prefHeight="34.0" prefWidth="225.0" style="-fx-font-size: 20; -fx-font-weight: 700;" text="Procudct Information " />
-      <ComboBox layoutX="38.0" layoutY="520.0" onShown="#setAction" prefHeight="40.0" prefWidth="269.0" style="-fx-border-color: #000000; -fx-background-color: none;" styleClass="b" />
+      <ComboBox fx:id="category" layoutX="37.0" layoutY="521.0" onMousePressed="#setmenu" prefHeight="34.0" prefWidth="267.0" />
    </children>
 </AnchorPane>

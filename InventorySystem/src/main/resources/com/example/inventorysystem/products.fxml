@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="products" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="776.0" prefWidth="1132.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorysystem.DashboardController" />
+<Pane fx:id="products" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="752.0" prefWidth="1096.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorysystem.ProductsController">
+   <children>
+      <TableView fx:id="itemTable" layoutX="69.0" layoutY="101.0" prefHeight="200.0" prefWidth="604.0">
+        <columns>
+          <TableColumn fx:id="tbId" prefWidth="75.0" resizable="false" text="Id" />
+          <TableColumn fx:id="tbname" prefWidth="75.0" resizable="false" text="Product Name" />
+            <TableColumn fx:id="thcategory" prefWidth="75.0" resizable="false" text="Category" />
+            <TableColumn fx:id="thbuy_price" prefWidth="75.0" resizable="false" text="Buying Price" />
+            <TableColumn fx:id="thsel_price" prefWidth="75.0" resizable="false" text="Selling Price" />
+            <TableColumn fx:id="thgross_total" prefWidth="75.0" resizable="false" text="Gross Total" />
+            <TableColumn fx:id="thquantity" prefWidth="75.0" resizable="false" text="In Stock" />
+            <TableColumn fx:id="thexpiry" prefWidth="75.0" resizable="false" text="Expiry Date" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>

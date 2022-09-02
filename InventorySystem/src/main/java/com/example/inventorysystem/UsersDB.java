@@ -1,4 +1,4 @@
-package com.example.inventorysystem.Database;
+package com.example.inventorysystem;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
