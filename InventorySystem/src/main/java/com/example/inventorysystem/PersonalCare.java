@@ -10,8 +10,8 @@ public class PersonalCare extends Item{
     public int personal_id;
     public String description;
 
-    public PersonalCare(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int personal_id, String description) {
-        super(id, code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
+    public PersonalCare(int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int personal_id, String description) {
+        super(code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
 
         this.personal_id =personal_id;
         this.description = description;

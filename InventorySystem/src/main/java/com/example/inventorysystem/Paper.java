@@ -10,8 +10,8 @@ public class Paper extends Item{
 
     public int paper_id;
     public String description;
-    public Paper(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int paper_id, String description ) {
-        super(id, code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
+    public Paper( int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int paper_id, String description ) {
+        super( code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
 
         this.paper_id = paper_id;
         this.description = description;

@@ -12,8 +12,8 @@ public class Frozen extends Item{
     public String description;
 
 
-    public Frozen(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int frozen_id, String description) {
-        super(id, code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
+    public Frozen( int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int frozen_id, String description) {
+        super( code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
 
         this.frozen_id = frozen_id;
         this.description = description;

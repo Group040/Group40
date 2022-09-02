@@ -9,8 +9,8 @@ public class Cleaners extends Item{
     }
     public int cleaners_id;
     public String description;
-    public Cleaners(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int cleaners_id, String description) {
-        super(id, code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
+    public Cleaners( int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int cleaners_id, String description) {
+        super( code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
 
         this.cleaners_id = cleaners_id;
         this.description = description;

@@ -10,8 +10,8 @@ public class Beverages extends Item {
     public Beverages(){
         super();
     }
-    public Beverages(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int beverage_id, String description) {
-        super(id, code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
+    public Beverages( int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int beverage_id, String description) {
+        super( code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
         this.beverage_id = beverage_id;
         this.description = description;
     }

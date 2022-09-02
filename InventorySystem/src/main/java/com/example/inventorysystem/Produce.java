@@ -11,8 +11,8 @@ public class Produce extends Item{
     public String description;
 
 
-    public Produce(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int produce_id, String description) {
-        super(id, code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
+    public Produce(int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int produce_id, String description) {
+        super(code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
 
         this.produce_id = produce_id;
         this.description = description;

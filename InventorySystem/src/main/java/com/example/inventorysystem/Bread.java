@@ -10,8 +10,8 @@ public class Bread extends Item{
     public Bread(){
         super();
     }
-    public Bread(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int bread_id, String description) {
-        super(id, code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
+    public Bread( int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int bread_id, String description) {
+        super(code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
 
         this.bread_id = id;
         this.description = description;

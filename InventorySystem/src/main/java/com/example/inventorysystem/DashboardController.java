@@ -96,8 +96,6 @@ public class DashboardController{
         URL url = getClass().getResource("products.fxml");
         System.out.println(url);
         System.out.println(url);
-        ProductsController prodcutsController = new ProductsController();
-            prodcutsController.refreshTable();
 
             mainBody.getChildren().clear();
         try {

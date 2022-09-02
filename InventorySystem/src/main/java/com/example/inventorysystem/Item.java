@@ -20,8 +20,7 @@ public class Item {
 
     }
 
-    public Item(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total) {
-        this.id = id;
+    public Item( int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total) {
         this.code = code;
         this.item_name = item_name;
         this.category = category;

@@ -12,8 +12,8 @@ public class Meat extends Item{
     public String description;
 
 
-    public Meat(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int meat_id, String description) {
-        super(id, code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
+    public Meat( int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int meat_id, String description) {
+        super(code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
 
         this.meat_id= meat_id;
         this.description = description;

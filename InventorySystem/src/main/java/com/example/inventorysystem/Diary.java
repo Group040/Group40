@@ -9,8 +9,8 @@ public class Diary extends Item{
     }
     public int diary_id;
     public String description;
-    public Diary(int id, int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int diary_id, String description) {
-        super(id, code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
+    public Diary(int code, String item_name, String category, LocalDate expiry, int buy_price, int sel_price, int quantity, int gross_total, int diary_id, String description) {
+        super( code, item_name, category, expiry, buy_price, sel_price, quantity, gross_total);
 
         this.diary_id = diary_id;
         this.description = description;

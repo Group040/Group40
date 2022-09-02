@@ -31,30 +31,30 @@ public class ProductsController {
 
     }
     @FXML
-    public static TableColumn<Item, Integer> tbId;
+    public  TableColumn<Item, Integer> tbId;
 
     @FXML
-    public static TableView<Item> itemTable ;
+    public  TableView<Item> itemTable ;
     @FXML
-    public static TableColumn<Item, String> tbname ;
+    public  TableColumn<Item, String> tbname ;
 
     @FXML
-    public static TableColumn<Item, Integer> thbuy_price;
+    public  TableColumn<Item, Integer> thbuy_price;
 
     @FXML
-    public static TableColumn<Item, String> thcategory ;
+    public  TableColumn<Item, String> thcategory ;
 
     @FXML
-    public static TableColumn<Item, LocalDate> thexpiry;
+    public  TableColumn<Item, LocalDate> thexpiry;
 
     @FXML
-    public static TableColumn<Item, Integer> thgross_total ;
+    public  TableColumn<Item, Integer> thgross_total ;
 
     @FXML
-    public static TableColumn<Item, Integer> thquantity ;
+    public  TableColumn<Item, Integer> thquantity ;
 
     @FXML
-    public static TableColumn<Item, Integer> thsel_price;
+    public  TableColumn<Item, Integer> thsel_price;
     @FXML
     public TextField buy_price;
 
@@ -73,6 +73,7 @@ public class ProductsController {
     public VBox listbox;
     @FXML
     public Button insert_product;
+
 
     @FXML
     private TextField name;
@@ -262,7 +263,7 @@ public class ProductsController {
             item.setDescription(description.getText());
             item.setId(genId(1000, 1000000));
             item.setCode(genId(1000, 10000000));
-            item.setCategory("Beverage");
+            item.setCategory("Cleane");
             item.setItem_name(name.getText());
             item.setBuy_price(Integer.parseInt(buy_price.getText()));
             item.setSel_price(Integer.parseInt(sel_price.getText()));
@@ -270,7 +271,7 @@ public class ProductsController {
             item.setCleaners_id(item.getId());
             item.setExpiry(expiry_date.getValue());
             item.setGross_total(item.getSel_price() * item.getQuantity());
-            refreshTable();
+
 
             gross_total.appendText(String.valueOf(item.getGross_total()));
             ProductsDB.createProduct(item, "bread", item.getCleaners_id(), item.getDescription());
@@ -279,7 +280,7 @@ public class ProductsController {
             item.setDescription(description.getText());
             item.setId(genId(1000, 1000000));
             item.setCode(genId(1000, 10000000));
-            item.setCategory("Beverage");
+            item.setCategory("Paper Goods");
             item.setItem_name(name.getText());
             item.setBuy_price(Integer.parseInt(buy_price.getText()));
             item.setSel_price(Integer.parseInt(sel_price.getText()));
@@ -296,7 +297,7 @@ public class ProductsController {
             item.setDescription(description.getText());
             item.setId(genId(1000, 1000000));
             item.setCode(genId(1000, 10000000));
-            item.setCategory("Beverage");
+            item.setCategory("Personal Care");
             item.setItem_name(name.getText());
             item.setBuy_price(Integer.parseInt(buy_price.getText()));
             item.setSel_price(Integer.parseInt(sel_price.getText()));
@@ -315,7 +316,7 @@ public class ProductsController {
     }
 
         @FXML
-        public static ObservableList<Item> showTable(){
+        public  void refresh(MouseEvent event){
             Connection connection = null;
             PreparedStatement statement = null;
 
@@ -334,39 +335,34 @@ public class ProductsController {
 
                 while (resultSet.next()){
 
-//                    Item item =new Item();
-//                    item.setId(resultSet.getInt(1));
-//                    item.setCode(resultSet.getInt(2));
-//                    item.setItem_name(resultSet.getString(3));
-//                    item.setCategory(resultSet.getString(4));
-//                    item.setExpiry(LocalDate.parse((resultSet.getString(5))));
-//                    item.setBuy_price(resultSet.getInt(6));
-//                    item.setSel_price(resultSet.getInt(7));
-//                    item.setQuantity(resultSet.getInt(8));
-//                    item.setGross_total(resultSet.getInt(9));
+                    Item item =new Item();
+                    item.setId(resultSet.getInt(1));
+                    item.setCode(resultSet.getInt(2));
+                    item.setItem_name(resultSet.getString(3));
+                    item.setCategory(resultSet.getString(4));
+                    item.setExpiry(LocalDate.parse((resultSet.getString(5))));
+                    item.setBuy_price(resultSet.getInt(6));
+                    item.setSel_price(resultSet.getInt(7));
+                    item.setQuantity(resultSet.getInt(8));
+                    item.setGross_total(resultSet.getInt(9));
+                    itemsI.clear();
+                    itemsI.add(item);
 
-
-//                    System.out.println(itemTable.getColumns());
-
-
-
-
-
-                    itemsI.add(new Item(resultSet.getInt(1),resultSet.getInt(2),resultSet.getString(3),resultSet.getString(4),LocalDate.parse((resultSet.getString(5))),resultSet.getInt(6),resultSet.getInt(7),resultSet.getInt(8),resultSet.getInt(9)));
+//                    itemsI.add(new Item(resultSet.getInt(1),resultSet.getInt(2),resultSet.getString(3),resultSet.getString(4),LocalDate.parse((resultSet.getString(5))),resultSet.getInt(6),resultSet.getInt(7),resultSet.getInt(8),resultSet.getInt(9)));
                     System.out.println(itemsI.get(0).buy_price);
 
-//                    tbId.setCellValueFactory(new PropertyValueFactory<Item, Integer>("id"));
-//                    tbname.setCellValueFactory(new PropertyValueFactory<Item, String>("item_name"));
-//                    thcategory.setCellValueFactory(new PropertyValueFactory<Item, String>("category"));
-//                    thbuy_price.setCellValueFactory(new PropertyValueFactory<Item, Integer>("buy_price"));
-//                    thexpiry.setCellValueFactory(new PropertyValueFactory<Item, LocalDate>("expiry"));
-//
-//                    thsel_price.setCellValueFactory(new PropertyValueFactory<Item, Integer>("sel_price"));
-//                    thquantity.setCellValueFactory(new PropertyValueFactory<Item, Integer>("quantity"));
-//                    thgross_total.setCellValueFactory(new PropertyValueFactory<Item, Integer>("gross_total"));
+                    tbId.setCellValueFactory(new PropertyValueFactory<Item, Integer>("id"));
+                    tbname.setCellValueFactory(new PropertyValueFactory<Item, String>("item_name"));
+                    thcategory.setCellValueFactory(new PropertyValueFactory<Item, String>("category"));
+                    thbuy_price.setCellValueFactory(new PropertyValueFactory<Item, Integer>("buy_price"));
+                    thexpiry.setCellValueFactory(new PropertyValueFactory<Item, LocalDate>("expiry"));
+                    thsel_price.setCellValueFactory(new PropertyValueFactory<Item, Integer>("sel_price"));
+                    thquantity.setCellValueFactory(new PropertyValueFactory<Item, Integer>("quantity"));
+                    thgross_total.setCellValueFactory(new PropertyValueFactory<Item, Integer>("gross_total"));
+                    itemTable.setItems(itemsI);
 
 
-                      System.out.println(itemTable.getItems());
+                    System.out.println(itemTable.getItems());
 
 
 
@@ -375,49 +371,14 @@ public class ProductsController {
 
                 }
 
-            }catch(SQLException ex){
+            }catch(SQLException ex) {
 
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Error occurred during sql injection");
                 alert.show();
             }
-            return itemsI;
 
         }
-@FXML
-public static void refreshTable(){
-
-
-                    tbId.setCellValueFactory(new PropertyValueFactory<Item, Integer>("id"));
-                    tbname.setCellValueFactory(new PropertyValueFactory<Item, String>("item_name"));
-                    thcategory.setCellValueFactory(new PropertyValueFactory<Item, String>("category"));
-                    thbuy_price.setCellValueFactory(new PropertyValueFactory<Item, Integer>("buy_price"));
-                     thexpiry.setCellValueFactory(new PropertyValueFactory<Item, LocalDate>("expiry"));
-
-                        thsel_price.setCellValueFactory(new PropertyValueFactory<Item, Integer>("sel_price"));
-                    thquantity.setCellValueFactory(new PropertyValueFactory<Item, Integer>("quantity"));
-                    thgross_total.setCellValueFactory(new PropertyValueFactory<Item, Integer>("gross_total"));
-                    itemTable.setItems(showTable());
-
 }
-
-//    @Override
-//    public void initialize(URL url, ResourceBundle resourceBundle) {
-//
-//        tbId.setCellValueFactory(new PropertyValueFactory<Item, Integer>("id"));
-//        tbname.setCellValueFactory(new PropertyValueFactory<Item, String>("item_name"));
-//        thcategory.setCellValueFactory(new PropertyValueFactory<Item, String>("category"));
-//        thbuy_price.setCellValueFactory(new PropertyValueFactory<Item, Integer>("buy_price"));
-//        thsel_price.setCellValueFactory(new PropertyValueFactory<Item, Integer>("sel_price"));
-//        thquantity.setCellValueFactory(new PropertyValueFactory<Item, Integer>("quantity"));
-//        thgross_total.setCellValueFactory(new PropertyValueFactory<Item, Integer>("gross_total"));
-//        refreshTable();
-//
-//
-//    }
-
-    // Sql queries
-
-    }
 
 
 
