@@ -56,7 +56,7 @@
          </children>
       </Pane>
       <TextField fx:id="search" layoutX="168.0" layoutY="47.0" prefHeight="38.0" prefWidth="287.0" />
-      <ComboBox fx:id="category1" layoutX="669.0" layoutY="46.0" onAction="#changeCat" onMousePressed="#changeCat" prefHeight="38.0" prefWidth="237.0" />
+      <ComboBox fx:id="category1" layoutX="669.0" layoutY="46.0" onMousePressed="#changeCat" prefHeight="38.0" prefWidth="237.0" />
       <Button fx:id="remove_" layoutX="915.0" layoutY="47.0" mnemonicParsing="false" onAction="#removeItem" onMouseClicked="#getItems" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: #8a1c1c;" text="Remove" textFill="WHITE" />
    </children>
 </Pane>

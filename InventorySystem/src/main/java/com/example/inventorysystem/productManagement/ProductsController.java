@@ -128,20 +128,20 @@ public class ProductsController {
 
 
 
-    ObservableList<Item> bvs = FXCollections.observableArrayList();
-    ObservableList<Item> bs = FXCollections.observableArrayList();
+    public static ObservableList<Item> bvs = FXCollections.observableArrayList();
+    public static ObservableList<Item> bs = FXCollections.observableArrayList();
 
-    ObservableList<Item> cans = FXCollections.observableArrayList();
+    public static ObservableList<Item> cans = FXCollections.observableArrayList();
 
-    ObservableList<Item> dis = FXCollections.observableArrayList();
+    public static ObservableList<Item> dis = FXCollections.observableArrayList();
 
-    ObservableList<Item> drq = FXCollections.observableArrayList();
+    public static ObservableList<Item> drq = FXCollections.observableArrayList();
 
-    ObservableList<Item> frq = FXCollections.observableArrayList();
+    public static ObservableList<Item> frq = FXCollections.observableArrayList();
 
-    ObservableList<Item> mq = FXCollections.observableArrayList();
+    public static ObservableList<Item> mq = FXCollections.observableArrayList();
 
-    ObservableList<Item> allList = FXCollections.observableArrayList();
+    public static ObservableList<Item> allList = FXCollections.observableArrayList();
 
 
 
@@ -154,49 +154,36 @@ public class ProductsController {
        Item item = ProductServices.addItem(description,name, buy_price, sel_price, quantity, category, "0",expiry_date);
 
         switch(item.getCategory()) {
-            case "Beverages":
-                beverageStack.pushToStack(bvs, item);
+            case "Beverage":
+                bvs = beverageStack.pushToStack(bvs, item);
+                System.out.println(bvs.size());
+
+                System.out.println("Added");
                 break;
             case "Bread/Bakery":
-                breadStack.pushToStack(bvs, item);
+               bs = breadStack.pushToStack(bs, item);
                 break;
             case "Dairy":
-                diaryStack.pushToStack(bvs, item);
+                dis = diaryStack.pushToStack(dis, item);
                 break;
             case "Dry/Baking Goods":
-                dryQueue.enqueue(bvs, item);
+                drq = dryQueue.enqueue(drq, item);
                 break;
 
                 case "Frozen Foods":
-                    frozenQueue.enqueue(bvs, item);
+                   frq = frozenQueue.enqueue(frq, item);
                 break;
             case "Meat":
-                meatQueue.enqueue(bvs, item);
+              mq =   meatQueue.enqueue(mq, item);
                 break;
 
             default:
-                beverageStack.pushToStack(bvs, item);
+                allList.add(item);
 
                 // code block
         }
-        if(item.getCategory() == "Beverages" ||
-                item.getCategory() == "Bread/Bakery" ||
+        System.out.println(bvs.size());
 
-                item.getCategory() == "Dairy"
-
-        ){
-            beverageStack.pushToStack(bvs, item);
-        }
-        else if(item.getCategory() == "Dry/Baking Goods" ||
-                item.getCategory() == "Bread/Bakery" ||
-                item.getCategory() == "Frozen Foods"||
-                item.getCategory() == "Dairy"
-
-        ){
-            breadStack.pushToStack(bs,item);
-        }else if(item.getCategory() == "Canned/Jarred Goods"){
-
-        }
 
     }
 
@@ -259,11 +246,13 @@ public class ProductsController {
     @FXML
     public void changeCat(MouseEvent event) {
         ObservableList<String> cat = FXCollections.observableArrayList();
-
+        cat.clear();
         System.out.println("Clicked");
         cat.clear();
         cat.addAll("Beverages","Bread/Bakery","Canned/Jarred","Dairy","Dry/Baking Goods", "Frozen Goods","Meat","Produced","Cleaners","Paper Goods", "Personal Care");
         category1.getItems().addAll(cat);
+        System.out.println(bvs.size());
+
 
     }
 
@@ -271,6 +260,24 @@ public class ProductsController {
 
     @FXML
     void removeItem(ActionEvent event) {
+        if(category1.getValue().toString() == "Beverages"){
+            System.out.println(bvs.size());
+            beverageStack.popStack(bvs);
+        } else if(category1.getValue().toString() == "Bread/Bakery"){
+                breadStack.popStack(bs);
+        }else if(category1.getValue().toString() == "Canned/Jarred Goods"){
+            cannedStack.popStack(cans);
+        }else if(category1.getValue().toString() == "Dairy"){
+            diaryStack.popStack(dis);
+        }else if(category1.getValue().toString() == "Dry/Baking Goods"){
+            dryQueue.dequeue(drq);
+        }else if(category1.getValue().toString() == "Frozen Foods"){
+            frozenQueue.dequeue(frq);
+        }else if(category1.getValue().toString() == "Meat"){
+            meatQueue.dequeue(mq);
+        }else{
+            allList.remove(allList.size()-1);
+        }
 
     }
 

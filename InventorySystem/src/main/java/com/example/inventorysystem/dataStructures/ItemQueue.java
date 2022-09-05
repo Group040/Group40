@@ -1,8 +1,16 @@
 package com.example.inventorysystem.dataStructures;
 
+import com.example.inventorysystem.Database.DBCon;
 import com.example.inventorysystem.Enities.Item;
+import com.example.inventorysystem.productManagement.ProductServices;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ItemQueue {
 
@@ -28,9 +36,18 @@ public class ItemQueue {
         return items;
     }
 
-    public ObservableList<Item> dequeue(ObservableList<Item> objects){
-        Item peek = objects.get(objects.size()-1);
-        objects.remove(peek);
+    public ObservableList<Item> dequeue(ObservableList<Item> objects) {
+        Item fistItem = null;
+        if (objects.size() < 4) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Low Stalk");
+            alert.show();
+        } else {
+            fistItem = objects.get(0);
+            ProductServices.removeItem(fistItem.getId());
+            objects.remove(fistItem);
+            return objects;
+
+        }
         return objects;
     }
 

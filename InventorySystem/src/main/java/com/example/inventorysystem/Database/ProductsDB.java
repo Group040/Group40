@@ -20,11 +20,6 @@ public class ProductsDB {
 
         String itsql = "INSERT INTO `item`(`id`, `code`, `item_name`, `category`, `expiry`, `buy_price`, `sel_price`, `quantity`, `gross_total`) VALUES (?,?,?,?,?,?,?,?,?)";
         String bvsal = "INSERT INTO `"+cate+"`(`id`, `description`) VALUES (?,?)";
-//        String brsql = "INSERT INTO `bread`(`id`, `description`) VALUES (?,?)";
-//        String clsqll = "INSERT INTO `cleaners`(`id`, `description`) VALUES (?,?)";
-//        String disql = "INSERT INTO `diary`(`id`, `description`) VALUES (?,?)";
-//        String drysql = "INSERT INTO `dry`(`id`, `description`) VALUES (?,?)";
-//        String mesql = "INSERT INTO `meat`(`id`, `description`) VALUES (?,?)";
 
 
         ResultSet resultSet = null;

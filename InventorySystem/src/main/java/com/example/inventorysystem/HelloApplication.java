@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
 
         Scene scene = new Scene(root, 1174, 700);
-        stage.setTitle("Hello!");
+        stage.setTitle("Inventory!");
         stage.setScene(scene);
         stage.show();
 

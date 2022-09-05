@@ -374,12 +374,13 @@ public class ProductServices {
 
 
 
-    // Removing items for database
-    public static void removeItem(String name) {
+
+    public static ObservableList<Item> getCategoryItem(String name){
+
         Connection connection = null;
         PreparedStatement statement = null;
 
-        String selectsql = "DELETE FROM `item` WHERE `item_name` = `" + name + "`";
+        String selectsql = "SELECT * FROM `"+name+"` WHERE 1";
         int counter = 1;
 
         ObservableList<Item> items = null;
@@ -393,9 +394,59 @@ public class ProductServices {
             System.out.println(resultSet);
             System.out.println(selectsql);
 
+            while (resultSet.next()) {
+
+                Item item = new Item();
+                item.setId(resultSet.getInt(1));
+                item.setCode(resultSet.getInt(2));
+                item.setItem_name(resultSet.getString(3));
+                item.setCategory(resultSet.getString(4));
+                item.setExpiry(LocalDate.parse((resultSet.getString(5))));
+                item.setBuy_price(resultSet.getInt(6));
+                item.setSel_price(resultSet.getInt(7));
+                item.setQuantity(resultSet.getInt(8));
+                item.setGross_total(resultSet.getInt(9));
+                items.add(item);
+
+            }
         } catch (SQLException ex) {
 
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Product Removed");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error occurred during sql injection");
+            alert.show();
+        }
+        return items;
+
+
+    }
+
+
+    // Removing items for database
+    public static void removeItem(int id) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        PreparedStatement statement1 = null;
+
+        String selectsql = "DELETE FROM `item` WHERE `id` = `" + id + "`";
+        String selectsql1 = "DELETE FROM `category` WHERE `id` = `" + id + "`";
+
+        int counter = 1;
+
+        ObservableList<Item> items = null;
+        try {
+            items = FXCollections.observableArrayList();
+
+            connection = DBCon.getConnection();
+            connection.setAutoCommit(false);
+            statement = connection.prepareStatement(selectsql);
+            statement1 = connection.prepareStatement(selectsql1);
+            ResultSet resultSet = statement.executeQuery();
+            ResultSet resultSet1 = statement1.executeQuery();
+
+
+
+        } catch (SQLException ex) {
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Product Removed Successfully");
             alert.show();
         }
     }

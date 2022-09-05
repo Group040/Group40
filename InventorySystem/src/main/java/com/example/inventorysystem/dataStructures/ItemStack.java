@@ -1,8 +1,16 @@
 package com.example.inventorysystem.dataStructures;
 
+import com.example.inventorysystem.Database.DBCon;
 import com.example.inventorysystem.Enities.Item;
+import com.example.inventorysystem.productManagement.ProductServices;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ItemStack {
 
@@ -32,19 +40,28 @@ public class ItemStack {
         return items;
     }
 
-    public ObservableList<Item> popStack(ObservableList<Item> objects){
-        Object peek = objects.get(objects.size()-1);
-        objects.remove(peek);
+    public ObservableList<Item> popStack(ObservableList<Item> objects) {
+        Item peek = null;
+        if (objects.size() < 4) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Low Stalk");
+            alert.show();
+        } else {
+            peek = objects.get(objects.size() - 1);
+            ProductServices.removeItem(peek.getId());
+            objects.remove(peek);
+            return objects;
+
+        }
         return objects;
     }
 
 
-    public boolean isEmpty(ObservableList<Item> objects){
+    public boolean isEmpty(ObservableList<Item> objects) {
 
-        if(objects.isEmpty()) {
+        if (objects.isEmpty()) {
             return true;
-        }else{
+        } else {
             return false;
         }
-        }
     }
+}
