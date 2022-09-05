@@ -14,6 +14,7 @@ public class Item {
     public int sel_price;
     public int quantity;
     public int gross_total;
+    public String remove;
 
 
     public Item() {
@@ -29,6 +30,7 @@ public class Item {
         this.sel_price = sel_price;
         this.quantity = quantity;
         this.gross_total = gross_total;
+        this.remove = "Remove";
     }
 
     public String getCategory() {

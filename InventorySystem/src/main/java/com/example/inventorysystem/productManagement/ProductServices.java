@@ -1,4 +1,4 @@
-package com.example.inventorysystem;
+package com.example.inventorysystem.productManagement;
 
 import com.dlsc.formsfx.model.structure.IntegerField;
 import com.example.inventorysystem.Database.DBCon;

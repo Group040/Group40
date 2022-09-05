@@ -18,4 +18,8 @@ module com.example.inventorysystem {
     opens com.example.inventorysystem.Enities to javafx.fxml;
     exports com.example.inventorysystem.Database;
     opens com.example.inventorysystem.Database to javafx.fxml;
+    exports com.example.inventorysystem.userManagement;
+    opens com.example.inventorysystem.userManagement to javafx.fxml;
+    exports com.example.inventorysystem.productManagement;
+    opens com.example.inventorysystem.productManagement to javafx.fxml;
 }
