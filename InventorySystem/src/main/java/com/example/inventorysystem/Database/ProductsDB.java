@@ -1,4 +1,6 @@
-package com.example.inventorysystem;
+package com.example.inventorysystem.Database;
+import com.example.inventorysystem.Enities.Item;
+import com.example.inventorysystem.ProductsController;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -14,7 +16,7 @@ public class ProductsDB {
     ProductsDB(){
 
     }
-    public static void createProduct(Item item,String cate, int id, String description ) throws SQLException {
+    public static void createProduct(Item item, String cate, int id, String description ) throws SQLException {
 
         String itsql = "INSERT INTO `item`(`id`, `code`, `item_name`, `category`, `expiry`, `buy_price`, `sel_price`, `quantity`, `gross_total`) VALUES (?,?,?,?,?,?,?,?,?)";
         String bvsal = "INSERT INTO `"+cate+"`(`id`, `description`) VALUES (?,?)";
@@ -60,7 +62,7 @@ public class ProductsDB {
             // Step 3: Execute the query or update query
 
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Product Added Successfully", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "ProductServices Added Successfully", ButtonType.OK);
             alert.show();
         } catch (SQLException e) {
             printSQLException(e);
