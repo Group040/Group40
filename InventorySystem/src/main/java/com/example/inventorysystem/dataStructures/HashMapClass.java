@@ -48,7 +48,7 @@ public class HashMapClass {
 
     public static void createVendor(HashMap<Integer, Users> vendor, Integer id) throws SQLException {
 
-        String itsql = "INSERT INTO `users`(`id`, `name`, `email`, `contact`, `role`, `username`, `password`) VALUES (?,?,?,?,?,?,?,?,?)";
+        String itsql = "INSERT INTO `users`(`id`, `name`, `email`, `contact`, `role`, `username`, `password`) VALUES (?,?,?,?,?,?,?)";
 
         ResultSet resultSet = null;
 

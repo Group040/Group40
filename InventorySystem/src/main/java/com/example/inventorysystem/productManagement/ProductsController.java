@@ -141,7 +141,7 @@ public class ProductsController {
 
     public static ObservableList<Item> mq = FXCollections.observableArrayList();
 
-    public static ObservableList<Item> allList = FXCollections.observableArrayList();
+     ObservableList<Item> allList = FXCollections.observableArrayList();
 
 
 
@@ -235,6 +235,7 @@ public class ProductsController {
 
             // 5. Add sorted (and filtered) data to the table.
             itemTable.setItems(sortedData);
+
 
 
                 if(ProductServices.getallProducts().size() == 0){

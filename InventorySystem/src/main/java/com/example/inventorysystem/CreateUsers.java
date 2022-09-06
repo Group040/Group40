@@ -1,10 +1,14 @@
-package com.example.inventorysystem.Entities;
+package com.example.inventorysystem;
 
+import com.example.inventorysystem.Entities.Users;
 import com.example.inventorysystem.dataStructures.HashMapClass;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -25,6 +29,17 @@ public class CreateUsers {
     @FXML
     private ComboBox<String> role;
 
+    @FXML
+    public void changeRole(MouseEvent event) {
+        ObservableList<String> cat = FXCollections.observableArrayList();
+        cat.clear();
+        System.out.println("Clicked");
+        cat.clear();
+        cat.addAll("admin","vendor");
+        role.getItems().addAll(cat);
+
+
+    }
     @FXML
     private TextField username;
     public static int genId(int min, int max) {
