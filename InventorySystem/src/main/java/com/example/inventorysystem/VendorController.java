@@ -104,7 +104,7 @@ public class VendorController {
     void addVendor(ActionEvent event) throws IOException {
 
         root = FXMLLoader.load(getClass().getResource("addVendor.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage = new Stage();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
