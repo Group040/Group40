@@ -51,23 +51,27 @@ public class UsersDB {
 
     // User login
     public static boolean loginUser(String username, String password,String role){
-        String sql = "SELECT  `role`, `username`, `password` FROM users WHERE role = ? and email = ? and password = ? ";
+        String sql = "SELECT  `role`, `username`, `password` FROM users WHERE role = ? and username = ? and password = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try{
+            connection = DBCon.getConnection();
+
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, role);
             preparedStatement.setString(2, username);
-            preparedStatement.setString(2, password);
+            preparedStatement.setString(3, password);
 
             resultSet = preparedStatement.executeQuery();
             if(!resultSet.next()){
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Enter Correct Email and Password\", \"Failed", ButtonType.OK);
                 alert.show();
+                return false;
             }else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Login Successfull\", \"Success\"", ButtonType.OK);
                 alert.show();
+
                 return true;
 
             }
@@ -75,6 +79,6 @@ public class UsersDB {
         }catch(Exception e){
             e.printStackTrace();
         }
-        return false;
+        return true;
     }
 }

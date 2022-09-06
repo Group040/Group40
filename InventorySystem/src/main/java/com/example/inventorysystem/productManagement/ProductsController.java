@@ -241,7 +241,6 @@ public class ProductsController {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION, "There are no items in the System", ButtonType.OK);
                     alert.show();
                 }
-
             }
 
 

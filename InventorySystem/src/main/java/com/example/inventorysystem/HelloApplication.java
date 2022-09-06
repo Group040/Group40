@@ -17,7 +17,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
 
         Scene scene = new Scene(root, 500, 350);
         stage.setTitle("Inventory!");

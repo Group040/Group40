@@ -26,6 +26,8 @@ public class ItemQueue {
             Item peek = objects.get(0);
             items.add(peek);
             objects.remove(peek);
+            ProductServices.removeItem(peek);
+
         }
         return items;
     }

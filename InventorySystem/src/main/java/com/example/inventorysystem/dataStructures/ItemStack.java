@@ -30,13 +30,14 @@ public class ItemStack {
             Item peek = item.get(item.size()-1);
             items.add(peek);
             item.remove(peek);
+            ProductServices.removeItem(peek);
         }
         return items;
     }
 
     public ObservableList<Item> popStack(ObservableList<Item> objects) {
         Item peek = null;
-        if (objects.size() < 4) {
+        if (objects.size() < 1) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Low Stalk");
             alert.show();
         } else {

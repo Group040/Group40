@@ -38,7 +38,7 @@ import javafx.stage.Stage;
             cat.clear();
             System.out.println("Clicked");
             cat.clear();
-            cat.addAll("admin","user");
+            cat.addAll("admin","vendor");
             role.getItems().addAll(cat);
 
 
@@ -50,18 +50,18 @@ import javafx.stage.Stage;
                 Boolean isUser = UsersDB.loginUser(username.getText(), password.getText(), role.getValue());
 
                 if (isUser) {
+                    root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    scene = new Scene(root,1400, 700);
+                    stage.setScene(scene);
+                    stage.show();
 
                 }
-                root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
             }else if (role.getValue() == "vendor"){
                 Boolean isUser = UsersDB.loginUser(username.getText(), password.getText(), role.getValue());
 
                 if (isUser) {
-                    root = FXMLLoader.load(getClass().getResource("salesvendor.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("sales.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);
