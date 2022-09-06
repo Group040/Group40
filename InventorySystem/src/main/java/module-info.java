@@ -14,12 +14,16 @@ module com.example.inventorysystem {
 
     opens com.example.inventorysystem to javafx.fxml;
     exports com.example.inventorysystem;
-    exports com.example.inventorysystem.Enities;
-    opens com.example.inventorysystem.Enities to javafx.fxml;
+    exports com.example.inventorysystem.Entities;
+    opens com.example.inventorysystem.Entities to javafx.fxml;
     exports com.example.inventorysystem.Database;
     opens com.example.inventorysystem.Database to javafx.fxml;
     exports com.example.inventorysystem.userManagement;
     opens com.example.inventorysystem.userManagement to javafx.fxml;
     exports com.example.inventorysystem.productManagement;
     opens com.example.inventorysystem.productManagement to javafx.fxml;
+    exports com.example.inventorysystem.salesManagement;
+    opens com.example.inventorysystem.salesManagement to javafx.fxml;
+    exports com.example.inventorysystem.dataStructures;
+    opens com.example.inventorysystem.dataStructures to javafx.fxml;
 }

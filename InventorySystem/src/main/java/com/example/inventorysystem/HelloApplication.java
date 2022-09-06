@@ -19,16 +19,10 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
 
-        Scene scene = new Scene(root, 1174, 700);
+        Scene scene = new Scene(root, 500, 350);
         stage.setTitle("Inventory!");
         stage.setScene(scene);
         stage.show();
-
-//        ProductsController products = new ProductsController();
-//
-//
-//        ObservableList<String> categories = FXCollections.observableArrayList("Beverages","Bread/Bakery","Canned/Jarred Goods", "Dairy,","Dry/Baking Goods","Frozen Foods", "Meat","Produced","Paper Goods", "Personal Care");
-//        products.categoryBox.getItems().addAll(categories);
 
 
     }

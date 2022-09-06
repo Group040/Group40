@@ -1,58 +1,80 @@
 package com.example.inventorysystem.Database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import com.example.inventorysystem.Entities.Users;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
+import java.sql.*;
 
 public class UsersDB {
 
-    // Replace below database url, username and password with your actual database credentials
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:7/inventory?useSSL=false";
-    private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "root";
 
-    private static final String INSERT_QUERY = "";
-    private static final String SELECT_QUERY = "";
-    private static final String DELETE_QUERY = "";
-    private static final String UPDATE_QUERY = "";
+    public void insertUser(Users users){
+
+        String itsql = "INSERT INTO `users`(`id`, `name`, `email`, `contact`, `role`, `username`, `password`) VALUES (?,?,?,?,?,?,?)";
+
+        try {
+            // try-with-resource statement will auto close the connection.
+            // Step 1: Establishing a Connection and
+
+            Connection connection = DBCon.getConnection();
+            PreparedStatement itemStatement = connection.prepareStatement(itsql);
 
 
-    public void insertUser(String fullName, String emailId, String password) throws SQLException {
+            itemStatement.setInt(1, users.getId());
+            itemStatement.setString(2, users.getName());
+            itemStatement.setString(3, users.getEmail());
+            itemStatement.setString(4, users.getContact());
+            itemStatement.setString(5, users.getRole());
+            itemStatement.setString(6, users.getUsername());
+            itemStatement.setString(7, users.getPassword());
 
-        // Step 1: Establishing a Connection and
-        // try-with-resource statement will auto close the connection.
-        try (Connection connection = DriverManager
-                .getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+            System.out.println(itemStatement);
 
-             // Step 2:Create a statement using connection object
-             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY)) {
-            preparedStatement.setString(1, fullName);
-            preparedStatement.setString(2, emailId);
-            preparedStatement.setString(3, password);
+            itemStatement.execute();
 
-            System.out.println(preparedStatement);
-            // Step 3: Execute the query or update query
-            preparedStatement.executeUpdate();
+
+
+
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "UserAdded Added Successfully", ButtonType.OK);
+            alert.show();
         } catch (SQLException e) {
-            // print SQL exception information
-            printSQLException(e);
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error " + e, ButtonType.OK);
+            alert.show();
+
         }
     }
 
-    public static void printSQLException(SQLException ex) {
-        for (Throwable e: ex) {
-            if (e instanceof SQLException) {
-                e.printStackTrace(System.err);
-                System.err.println("SQLState: " + ((SQLException) e).getSQLState());
-                System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
-                System.err.println("Message: " + e.getMessage());
-                Throwable t = ex.getCause();
-                while (t != null) {
-                    System.out.println("Cause: " + t);
-                    t = t.getCause();
-                }
+
+
+
+    // User login
+    public static boolean loginUser(String username, String password,String role){
+        String sql = "SELECT  `role`, `username`, `password` FROM users WHERE role = ? and email = ? and password = ? ";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try{
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, role);
+            preparedStatement.setString(2, username);
+            preparedStatement.setString(2, password);
+
+            resultSet = preparedStatement.executeQuery();
+            if(!resultSet.next()){
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Enter Correct Email and Password\", \"Failed", ButtonType.OK);
+                alert.show();
+            }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Login Successfull\", \"Success\"", ButtonType.OK);
+                alert.show();
+                return true;
+
             }
+
+        }catch(Exception e){
+            e.printStackTrace();
         }
+        return false;
     }
 }

@@ -1,22 +1,17 @@
 package com.example.inventorysystem.productManagement;
 
-import com.dlsc.formsfx.model.structure.IntegerField;
 import com.example.inventorysystem.Database.DBCon;
 import com.example.inventorysystem.Database.ProductsDB;
-import com.example.inventorysystem.Enities.*;
+import com.example.inventorysystem.Entities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Iterator;
 import java.util.Random;
 
 public class ProductServices {
@@ -421,13 +416,13 @@ public class ProductServices {
 
 
     // Removing items for database
-    public static void removeItem(int id) {
+    public static void removeItem(Item item) {
         Connection connection = null;
         PreparedStatement statement = null;
         PreparedStatement statement1 = null;
 
-        String selectsql = "DELETE FROM `item` WHERE `id` = `" + id + "`";
-        String selectsql1 = "DELETE FROM `category` WHERE `id` = `" + id + "`";
+        String selectsql = "DELETE FROM `item` WHERE `id` = `" + item.getId() + "`";
+        String selectsql1 = "DELETE FROM `category` WHERE `id` = `" + item.getId() + "`";
 
         int counter = 1;
 
@@ -446,7 +441,7 @@ public class ProductServices {
 
         } catch (SQLException ex) {
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Product Removed Successfully");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, item.getItem_name()+" has been remved Successfully");
             alert.show();
         }
     }

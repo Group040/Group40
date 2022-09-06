@@ -1,4 +1,4 @@
-package com.example.inventorysystem.Enities;
+package com.example.inventorysystem.Entities;
 
 import java.time.LocalDate;
 

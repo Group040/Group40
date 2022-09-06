@@ -1,16 +1,10 @@
 package com.example.inventorysystem.dataStructures;
 
-import com.example.inventorysystem.Database.DBCon;
-import com.example.inventorysystem.Enities.Item;
+import com.example.inventorysystem.Entities.Item;
 import com.example.inventorysystem.productManagement.ProductServices;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class ItemQueue {
 
@@ -43,7 +37,7 @@ public class ItemQueue {
             alert.show();
         } else {
             fistItem = objects.get(0);
-            ProductServices.removeItem(fistItem.getId());
+            ProductServices.removeItem(fistItem);
             objects.remove(fistItem);
             return objects;
 

@@ -4,7 +4,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.logging.Logger;
 
-import com.example.inventorysystem.Enities.*;
+import com.example.inventorysystem.Entities.*;
 import com.example.inventorysystem.dataStructures.ItemQueue;
 import com.example.inventorysystem.dataStructures.ItemStack;
 import javafx.collections.FXCollections;
@@ -220,6 +220,8 @@ public class ProductsController {
 
                     if (item.getCategory().toLowerCase().contains(lowerCaseFilter)) {
                         return true; // Filter matches first name.
+                    }else if (item.getItem_name().toLowerCase().contains(lowerCaseFilter)) {
+                        return true; // Filter matches last name.
                     }
                     return false;
                     // Does not match.

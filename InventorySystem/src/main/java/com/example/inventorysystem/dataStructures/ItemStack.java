@@ -1,16 +1,10 @@
 package com.example.inventorysystem.dataStructures;
 
-import com.example.inventorysystem.Database.DBCon;
-import com.example.inventorysystem.Enities.Item;
+import com.example.inventorysystem.Entities.Item;
 import com.example.inventorysystem.productManagement.ProductServices;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class ItemStack {
 
@@ -47,7 +41,7 @@ public class ItemStack {
             alert.show();
         } else {
             peek = objects.get(objects.size() - 1);
-            ProductServices.removeItem(peek.getId());
+            ProductServices.removeItem(peek);
             objects.remove(peek);
             return objects;
 

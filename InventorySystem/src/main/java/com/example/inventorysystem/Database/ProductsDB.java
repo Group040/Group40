@@ -1,5 +1,5 @@
 package com.example.inventorysystem.Database;
-import com.example.inventorysystem.Enities.Item;
+import com.example.inventorysystem.Entities.Item;
 import com.example.inventorysystem.productManagement.ProductsController;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;

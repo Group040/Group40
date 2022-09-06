@@ -1,25 +1,35 @@
-package com.example.inventorysystem.Enities;
+package com.example.inventorysystem.Entities;
 
 public class Users {
     private int id;
     private String name;
+    private String email;
     private String contact;
     private String role;
     private String username;
     private String password;
 
-    public Users(String name, String contact, String role, String username, String password) {
+    public Users(String name, String email,String contact, String role, String username, String password) {
         this.name = name;
         this.contact = contact;
         this.role = role;
         this.username = username;
         this.password = password;
+        this.email = email;
     }
 
     public Users(){}
 
     public int getId() {
         return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setId(int id) {
